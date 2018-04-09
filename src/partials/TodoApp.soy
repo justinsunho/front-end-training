@@ -1,0 +1,37 @@
+{namespace TodoApp}
+
+/**
+ */
+{template .render}
+	{@param? handleTodoAdd: ?}
+	{@param? handleTodoClick: ?}
+	{@param? percentage: ?}
+	{@param? todos: ?}
+
+
+	<div class="todo-app">
+		<div class="form-wrapper">
+			{call TodoForm.render}
+				{param events: ['todoAdd' : $handleTodoAdd] /}
+			{/call}
+		</div>
+
+		<div class="results-wrapper">
+			<div class="progress-bar-wrapper">
+				{call TodoProgressBar.render}
+					{param percentage: $percentage /}
+				{/call}
+			</div>
+
+			<ol>
+				{foreach $todo in $todos}
+					{call TodoItem.render}
+						{param events: ['todoClick' : $handleTodoClick] /}
+						{param index: index($todo) /}
+						{param todo: $todo /}
+					{/call}
+				{/foreach}
+			</ol>
+		</div>
+	</div>
+{/template}
