@@ -1,3 +1,5 @@
+$accent: #4285F4;
+
 .todo-app {
 	.results-wrapper {
 		border-top: 1px dashed #eee;
@@ -10,7 +12,7 @@
 			}
 
 			.progress-bar {
-				background-color: #FF8600;
+				background-color: $accent;
 			}
 		}
 
